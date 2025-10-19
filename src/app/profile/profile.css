@@ -1,0 +1,12 @@
+.card{
+    max-width: 80%;
+    margin: auto;
+}
+.table{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+body{
+    background-color: #f4f5f7;
+}

@@ -1,0 +1,24 @@
+<div class="card l">
+    <div class="card-header">
+        <h4>Login</h4>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+             <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password">
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-success">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+                </button>
+                <a routerLink="/signup">I dont have an account</a>
+            </div>
+        </form>
+    </div>
+</div>

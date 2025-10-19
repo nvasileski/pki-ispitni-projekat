@@ -1,0 +1,49 @@
+<div class="card signup">
+    <div class="card-header">
+        <h4>Signup</h4>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="contactPhone" class="form-label">Contact Phone</label>
+                <input type="text" class="form-control" id="contactPhone" formControlName="contactPhone">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password">
+            </div>
+            <div class="mb-3">
+                <label for="repeatPassword" class="form-label">Repeat Password</label>
+                <input type="password" class="form-control" id="repeatPassword" formControlName="repeatPassword">
+            </div>
+            <div class="mb-3">
+                <label for="favoriteToyType" class="form-label">Favorite Toy Type</label>
+                <select class="form-select" id="favoriteToyType" formControlName = "favoriteToyType">
+                    @for (f of favorite(); track $index) {
+                        <option [value]="f.name">{{f.name}}</option>
+                    }
+                </select>
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-success">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+                </button>
+                <a routerLink="/login">I already have an account</a>
+            </div>
+        </form>
+    </div>
+</div>

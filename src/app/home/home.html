@@ -1,0 +1,81 @@
+<div class="row">
+    @if (toys().length > 0) {
+    <div class="toys">
+        @for (t of toys(); track $index) {
+        <div class="card mt-2">
+            <div class="card-header">
+                <h5>{{t.name}}</h5>
+            </div>
+            <div class="card-body">
+                <img [src]="getImage(t!.toyId)" class="card-img-top" [alt]="t.name">
+                <h5 class="card-title text-muted mb-3 mt-2">{{t.description}}</h5>
+                <h4 class="card-subtitle mb-3 mt-2">{{t.price}}</h4>
+            </div>
+            <div class="card-footer">
+                <div class="action">
+                    <button class="btn btn-sm btn-success" (click)="addToCart(t)">
+                        <i class="fa-solid fa-cart-plus"></i> Add to cart
+                    </button>
+                    <a routerLink="`/details/${t.toyId}`"><i class="fa-solid fa-circle-info"></i> </a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }@else {<div class="toys">
+        @for (t of copyToys(); track $index) {
+        <div class="card mt-2">
+            <div class="card-header">
+                <h5>{{t.name}}</h5>
+            </div>
+            <div class="card-body">
+                <img [src]="getImage(t!.toyId)" class="card-img-top" [alt]="t.name">
+                <h5 class="card-title text-muted mb-3 mt-2">{{t.description}}</h5>
+                <h4 class="card-subtitle mb-3 mt-2">{{t.price}}</h4>
+            </div>
+            <div class="card-footer">
+                <div class="action">
+                    <button class="btn btn-sm btn-success" (click)="addToCart(t)">
+                        <i class="fa-solid fa-cart-plus"></i> Add to cart
+                    </button>
+                    <a [routerLink]="`/details/${t.toyId}`"><i class="fa-solid fa-circle-info"></i></a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>}
+    <div class="card filter">
+        <div class="card-header">
+            <h5>Filteri</h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <h6>Kategorija</h6>
+                <select class="form-select" [(ngModel)]="selectedCategory" (change)="search()">
+                    <option value="all">All categories</option>
+                    @for (cat of getCategories(); track $index) {
+                    <option [value]="cat">{{cat}}</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <h6>Target group</h6>
+                <select class="form-select" [(ngModel)]="selectedTargetGroup" (change)="search()">
+                    <option value="all">All Target groups</option>
+                    @for (tg of getTargetGroup(); track $index) {
+                    <option [value]="tg">{{tg}}</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <h6>Age group</h6>
+                <select class="form-select" [(ngModel)]="selectedTargetGroup" (change)="search()">
+                    <option value="all">All Age Groups</option>
+                    @for (ag of getAgeGroup(); track $index) {
+                    <option [value]="ag">{{ag}}</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

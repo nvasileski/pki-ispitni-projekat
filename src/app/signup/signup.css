@@ -1,0 +1,14 @@
+
+.signup{
+    margin-top: 10px;
+    max-width: 60%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+.card-footer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

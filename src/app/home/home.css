@@ -1,0 +1,26 @@
+.toys{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    max-width: 60%;
+}
+
+.card{
+    max-width: 18rem;
+}
+.action{
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.filter{
+    max-width: 20%;
+    margin-top: 8px;
+}
+

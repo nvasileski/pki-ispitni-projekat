@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <h3>Vaša korpa</h3>
+    @if (cart().length === 0) {
+    <div class="alert alert-info mt-3">
+        Korpa je prazna.
+    </div>
+    }
+    @else {
+    <div>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Naziv</th>
+                    <th>Cena</th>
+                    <th>Količina</th>
+                    <th>Ukupno</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of cart(); track $index) {
+                <tr>
+                    <td>{{ item.toy.name }}</td>
+                    <td>{{ item.toy.price}}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.toy.price * item.quantity}}</td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+
+        <h5 class="text-end">Ukupno: {{ total}}</h5>
+
+        <div class="btn-group">
+            <button class="btn btn-sm btn-success" (click)="checkOut()">
+                CheckOut
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="clearCart()">
+                Ocisti Korpu
+            </button>
+        </div>
+    </div>
+
+    }
+
+</div>

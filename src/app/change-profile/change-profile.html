@@ -1,0 +1,64 @@
+<div class="card change">
+    <div class="card-header">
+        <h4>Edit profile data</h4>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="changeProfile()" novalidate>
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="contactPhone" class="form-label">Contact Phone</label>
+                <input type="text" class="form-control" id="contactPhone" formControlName="contactPhone">
+            </div>
+            <div class="mb-3">
+                <label for="favoriteToyType" class="form-label">Favorite Toy Type</label>
+                <select class="form-select" id="favoriteToyType" formControlName="favoriteToyType">
+                    @for (f of favoriteToy(); track $index) {
+                    <option [value]="f.name">{{f.name}}</option>
+                    }
+                </select>
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-sm btn-success">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> Submit
+                </button>
+            </div>
+        </form>
+        <div class="card pass">
+            <div class="card-header">
+                <h4>Change password</h4>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="passForm" (ngSubmit)="passwordChange()" novalidate>
+                    <div class="mb-3">
+                        <label for="currentPassword" class="form-label">Current Password</label>
+                        <input type="password" class="form-control" id="currentPassword"
+                            formControlName="currentPassword">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" formControlName="newPassword">
+                    </div>
+                    <div class="mb-3">
+                        <label for="repeatPassword" class="form-label">Repeat Password</label>
+                        <input type="password" class="form-control" id="repeatPassword"
+                            formControlName="repeatPassword">
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-sm btn-success">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+@if (toy()) {
+<div class="card">
+    <div class="row">
+        <div class="col md-6">
+            <img [src]="getImage(toy()!.toyId)" class="card-img-top" [alt]="toy()!.name">
+        </div>
+        <div class="col md-6">
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Name: <strong>{{toy()?.name}}</strong>
+                    </li>
+                    <li class="list-group-item">
+                        Description: <strong>{{toy()?.description}}</strong>
+                    </li>
+                    <li class="list-group-item">
+                        Target Group: <strong>{{toy()?.targetGroup}}</strong>
+                    </li>
+                    <li class="list-group-item">
+                        Age group: <strong>{{toy()?.ageGroup?.name}}</strong>
+                    </li>
+                    <li class="list-group-item">
+                        Category: <strong>{{toy()?.type?.name}}</strong>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn btn-sm btn-success" (click)="addToCart(toy()!)">
+                            <i class="fa-solid fa-cart-plus"></i> Add to cart
+                        </button>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+}
